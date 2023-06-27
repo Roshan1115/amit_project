@@ -90,7 +90,7 @@
 
 <style>
    body{
-      background-image: url(BG_WELCOME.jpg);
+      background-image: url( "{{url_for('static', filename='BG_WELCOME.jpg')}}" );
       background-position: center;
       background-size: 150%;
      }
@@ -135,7 +135,7 @@
 #suz{
   border: solid white 2px;
   width: 550px;
-  height: 200px;
+  height: 370px;
   border-radius:15px;
   overflow-y: scroll;
   box-shadow: 4px 4px 10px black;
@@ -146,14 +146,20 @@
   border: solid white 2px;
   border-radius:15px;
   width: 550px;
-  height: 200px;
-  overflow-y: scroll;
+  height: 150px;
   box-shadow: 4px 4px 10px black;
-
+  overflow: hidden;
  }
  /* #ss{
   left: %;
  } */
+
+ .work_btn {
+  border: none;
+  padding: 10px 30px;
+  background-color: rgb(230, 230, 233);
+  border-radius: 30px;
+ }
 
  .review {
     margin-top: 30px;
@@ -172,35 +178,40 @@
   padding: 0 2rem;
 }
 
+.heading {
+  font-weight: bold;
+  text-shadow: 5px 5px 10px black;
+}
+
 </style>
 </head>
 <body>
 
 
-  <h1 style="text-align: center;margin-top: 20px; color: white;">Text Summarization and Sentiment Analysis</h1>
+  <h1 class="heading"  style="text-align: center;margin-top: 20px; color: white;">Text Summarization and Sentiment Analysis</h1>
 
        <div class="container">
         <div class="row" id="main">
         
           <div class="col-8" id="text">
-            <label for="text-field"> <span style="font-size: 20px;"> Paste Your Text: </span></label><br>
+            <label style="text-decoration: underline;" for="text-field"> <span style="font-size: 20px;"> Paste Your Text: </span></label><br>
             <textarea id="text-field" rows="20"></textarea><br><br>
           </div>
           <div class="col-1"></div>
           <div class="col-3" id="ss">
             <div class="row-6" id="suz" style="background-color:azure   ;">
-              <button id="summarize-btn" style="border-radius: 5px;">Summarize</button>   
+              <button class="work_btn" id="summarize-btn" style="border-radius: 5px;">Summarize</button>   
                   <!-- <h2>Summary:</h2> -->
                   <p id="summary"></p>
             </div>
   
             <div class="row-6" id="sen" style="background-color:azure;">
-                <button id="sentiment-btn" style="border-radius: 5px;">Sentiment</button> 
+                <button class="work_btn"  id="sentiment-btn" style="border-radius: 5px;">Sentiment</button> 
                 <!-- <h2>Sentiment:</h2> -->
-                <p id="sentiment"></p>
+                <h1 style="text-align: center;" id="sentiment"></h1>
             </div>
 
-            <div class="review">
+            <!-- <div class="review">
                 <div class="text_review">
                   <h2>Positive : 1</h2>
                 </div>
@@ -208,7 +219,7 @@
                 <div class="text_review">
                   <h2>Negative : 0</h2>
                 </div>
-            </div>
+            </div> -->
 
           </div> 
         </div>
